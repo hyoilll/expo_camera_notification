@@ -65,12 +65,14 @@ const CameraFunc = (props) => {
         <Image source={{ uri: picture }} style={{ flex: 10 }} />
       ) : (
         <>
+          <View style={styles.container}></View>
           <Camera
             style={styles.camera}
             type={type}
             ref={(ref) => {
               setCamera(ref);
             }}
+            ratio={"1:1"}
             flashMode={isFlash ? FlashMode.torch : FlashMode.off}
           />
           <Flash isFlash={isFlash} setIsFlash={setIsFlash} />
@@ -89,7 +91,7 @@ const CameraFunc = (props) => {
         ) : (
           <>
             <TouchableOpacity onPress={takePicture}>
-              <Ionicons name="ios-camera-outline" size={40} color="black" />
+              <Ionicons name="ios-camera-outline" size={40} color="white" />
             </TouchableOpacity>
             <TouchableOpacity
               style={{ marginLeft: 50 }}
@@ -98,7 +100,7 @@ const CameraFunc = (props) => {
               <Ionicons
                 name="ios-camera-reverse-sharp"
                 size={40}
-                color="black"
+                color="white"
               />
             </TouchableOpacity>
           </>
@@ -113,15 +115,17 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     width: "100%",
+    backgroundColor: "black",
   },
   camera: {
-    flex: 10,
+    flex: 5,
     width: "100%",
+    aspectRatio: 1 / 1,
   },
   buttonContainer: {
     flex: 1,
     flexDirection: "row",
-    backgroundColor: "white",
+    backgroundColor: "black",
     justifyContent: "center",
     alignItems: "center",
   },
