@@ -62,7 +62,11 @@ const CameraFunc = (props) => {
     <SafeAreaView style={styles.container}>
       <StatusBar style="light" />
       {picture ? (
-        <Image source={{ uri: picture }} style={{ flex: 10 }} />
+        <Image
+          source={{ uri: picture }}
+          style={styles.capturedImg}
+          resizeMode="stretch"
+        />
       ) : (
         <>
           <View style={styles.topMenu}>
@@ -74,7 +78,7 @@ const CameraFunc = (props) => {
             ref={(ref) => {
               setCamera(ref);
             }}
-            ratio={"1:1"}
+            focusDepth={0}
             flashMode={isFlash ? FlashMode.torch : FlashMode.off}
           />
         </>
@@ -125,8 +129,11 @@ const styles = StyleSheet.create({
   },
   camera: {
     flex: 5,
-    width: "100%",
-    aspectRatio: 1 / 1,
+    aspectRatio: 3 / 4,
+  },
+  capturedImg: {
+    flex: 6,
+    aspectRatio: 3 / 4.8,
   },
   buttonContainer: {
     flex: 1,
