@@ -17,9 +17,9 @@ const Flash: FC<Props> = (props) => {
   return (
     <TouchableOpacity onPress={toggleFlash} style={styles.flashBtn}>
       {isFlash ? (
-        <Ionicons name="ios-flash-off-sharp" size={35} color="black" />
+        <Ionicons name="ios-flash-off-sharp" size={35} color="white" />
       ) : (
-        <Ionicons name="ios-flash-sharp" size={35} color="black" />
+        <Ionicons name="ios-flash-sharp" size={35} color="white" />
       )}
     </TouchableOpacity>
   );
@@ -27,13 +27,8 @@ const Flash: FC<Props> = (props) => {
 
 const styles = StyleSheet.create({
   flashBtn: {
-    position: "absolute",
-    top: 100,
-    right: 20,
-    padding: 3,
-    borderWidth: 1,
-    borderRadius: 15,
-    backgroundColor: "lightgray",
+    marginTop: 40,
+    marginRight: 20,
   },
 });
 

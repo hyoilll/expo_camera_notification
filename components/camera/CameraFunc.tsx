@@ -65,7 +65,9 @@ const CameraFunc = (props) => {
         <Image source={{ uri: picture }} style={{ flex: 10 }} />
       ) : (
         <>
-          <View style={styles.container}></View>
+          <View style={styles.topMenu}>
+            <Flash isFlash={isFlash} setIsFlash={setIsFlash} />
+          </View>
           <Camera
             style={styles.camera}
             type={type}
@@ -75,7 +77,6 @@ const CameraFunc = (props) => {
             ratio={"1:1"}
             flashMode={isFlash ? FlashMode.torch : FlashMode.off}
           />
-          <Flash isFlash={isFlash} setIsFlash={setIsFlash} />
         </>
       )}
       <View style={styles.buttonContainer}>
@@ -115,7 +116,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     width: "100%",
+  },
+  topMenu: {
+    flex: 1,
     backgroundColor: "black",
+    justifyContent: "center",
+    alignItems: "flex-end",
   },
   camera: {
     flex: 5,
